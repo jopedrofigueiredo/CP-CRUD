@@ -50,3 +50,13 @@ let cards = [
     "favorita": false
   }
 ];
+
+
+//Inicialização
+window.onload = function() {
+    carregarCards();
+
+    document.getElementById('CardForm').addEventListener('submit', addCard);
+    document.getElementById('Cardslist').addEventListener('submit', handleClick);
+
+}
