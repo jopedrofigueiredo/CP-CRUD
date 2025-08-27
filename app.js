@@ -87,5 +87,14 @@ function addCard(cardSecurity) {
   };
 
   cards.unshift(card);
+  salvarCards();
   console.log(cards);
 }
+
+
+//Salvar Cards
+function salvarCards(){
+  localStorage.setItem("Cards", JSON.stringify(cards));
+}
+
+
