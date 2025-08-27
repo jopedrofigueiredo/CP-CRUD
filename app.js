@@ -55,6 +55,7 @@ let cards = [
 //Inicialização
 // window.onload = function() {
 //     carregarCards();
+       displayCards();
 
        document.getElementById('cardForm').addEventListener('submit', addCard);
 //     document.getElementById('Cardslist').addEventListener('submit', handleClick);
@@ -89,7 +90,32 @@ function addCard(cardSecurity) {
   cards.unshift(card);
   salvarCards();
   console.log(cards);
+  displayCards();
 }
+
+
+// Exibir Cards
+function displayCards() {
+  let listaCards = document.querySelector('#Cardslist');
+  listaCards.innerHTML = '';
+
+  cards.forEach((item) => {
+    let CardDiv = document.createElement('div');
+
+    CardDiv.innerHTML = `
+    <p>Nome = ${item.nome}</p>
+    <p>Posição = ${item.posicao}</p>
+    <p>Clube = ${item.clube}</p>
+    <img src"${item.foto} alt="Imagem da jogadora">
+    <p>Gols = ${item.gols}<p>
+    <p>Assistências = ${item.assistencias}<p>
+    <p>Jogos = ${item.jogos}<p>
+    `
+
+    listaCards.append(CardDiv);
+  });
+}
+
 
 
 //Salvar Cards
