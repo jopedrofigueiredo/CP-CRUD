@@ -53,10 +53,39 @@ let cards = [
 
 
 //Inicialização
-window.onload = function() {
-    carregarCards();
+// window.onload = function() {
+//     carregarCards();
 
-    document.getElementById('CardForm').addEventListener('submit', addCard);
-    document.getElementById('Cardslist').addEventListener('submit', handleClick);
+       document.getElementById('cardForm').addEventListener('submit', addCard);
+//     document.getElementById('Cardslist').addEventListener('submit', handleClick);
+// }
 
+
+
+
+// Create
+function addCard(cardSecurity) {
+  cardSecurity.preventDefault();
+
+  let nomeCard = document.querySelector('#cardNome').value;
+  let posCard = document.querySelector('#cardPos').value;
+  let clubeCard = document.querySelector('#cardClube').value;
+  let imgCard = document.querySelector('#cardImg').value;
+  let golsCard = document.querySelector('#cardGols').value;
+  let asstCard = document.querySelector('#cardAsst').value;
+  let jogosCard = document.querySelector('#cardJogos').value;
+
+  let card = {
+    nome: nomeCard,
+    posicao: posCard,
+    clube: clubeCard,
+    foto: imgCard,
+    gols: golsCard,
+    assistencias: asstCard,
+    jogos: jogosCard,
+    favorita: false
+  };
+
+  cards.unshift(card);
+  console.log(cards);
 }
