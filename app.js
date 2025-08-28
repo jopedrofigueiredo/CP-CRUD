@@ -92,6 +92,8 @@ function addCard(cardSecurity) {
   salvarCards();
   console.log(cards);
   displayCards();
+
+  document.getElementById('cardForm').reset();
 }
 
 
