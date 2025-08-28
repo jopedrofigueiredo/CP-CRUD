@@ -53,13 +53,14 @@ let cards = [
 
 
 //Inicialização
-// window.onload = function() {
+ window.onload = function() {
 //     carregarCards();
        displayCards();
-
+       salvarCards();
+      
        document.getElementById('cardForm').addEventListener('submit', addCard);
 //     document.getElementById('Cardslist').addEventListener('submit', handleClick);
-// }
+}
 
 
 
@@ -107,9 +108,9 @@ function displayCards() {
     <p>Posição = ${item.posicao}</p>
     <p>Clube = ${item.clube}</p>
     <img src"${item.foto} alt="Imagem da jogadora">
-    <p>Gols = ${item.gols}<p>
-    <p>Assistências = ${item.assistencias}<p>
-    <p>Jogos = ${item.jogos}<p>
+    <p>Gols = ${item.gols}</p>
+    <p>Assistências = ${item.assistencias}</p>
+    <p>Jogos = ${item.jogos}</p>
     `
 
     listaCards.append(CardDiv);
