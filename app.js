@@ -54,7 +54,7 @@ let cards = [
 
 //Inicialização
  window.onload = function() {
-//     carregarCards();
+       carregarCards();
        displayCards();
        salvarCards();
       
@@ -123,7 +123,14 @@ function displayCards() {
 
 //Salvar Cards
 function salvarCards(){
-  localStorage.setItem("Cards", JSON.stringify(cards));
+  localStorage.setItem("cards", JSON.stringify(cards));
 }
 
+//Carregar Cards
+function carregarCards() {
+  let cardsSalvos = localStorage.getItem("cards");
+  if (cardsSalvos) {
+    cards = JSON.parse(cardsSalvos);
+  }
+}
 
