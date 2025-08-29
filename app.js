@@ -59,6 +59,7 @@ let cards = [
        salvarCards();
       
        document.getElementById('cardForm').addEventListener('submit', addCard);
+       document.getElementById('editar').addEventListener('click', editarCard);
 //     document.getElementById('Cardslist').addEventListener('submit', handleClick);
 }
 
@@ -113,11 +114,38 @@ function displayCards() {
     <p>Gols = ${item.gols}</p>
     <p>Assistências = ${item.assistencias}</p>
     <p>Jogos = ${item.jogos}</p>
+    <button id="editar">Editar</button>
     `
 
     listaCards.append(CardDiv);
   });
 }
+
+
+//Editar Card
+function editarCard() {
+    let escolha = document.createElement('div');  
+    escolha.classList.add('selecionarCampo');
+    document.body.classList.add('travado');
+    document.body.appendChild(escolha);
+
+    escolha.innerHTML = `
+      <form>
+            <select name="escolha" id="">
+               <option value="nome">Nome</option>
+               <option value="posição">Posição</option>
+               <option value="clube">Clube</option>
+               <option value="foto">Foto</option>
+               <option value="gols">Gols</option>
+               <option value="assistencias">Assistências</option>
+               <option value="jogos">Jogos</option>
+            </select>
+            <button type="submit" onclick="event.preventDefault()">Atualizar</button>
+        </form>
+    `;
+  
+}
+
 
 
 
