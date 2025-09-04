@@ -128,9 +128,11 @@ function editarCard() {
     escolha.classList.add('selecionarCampo');
     document.body.classList.add('travado');
     document.body.appendChild(escolha);
+    let btnFechar = escolha.querySelector('.fechar');
 
     escolha.innerHTML = `
-      <form>
+      <button id="btn_fechar">&times;</button>
+      <form id="escolhaCampo">
             <select name="escolha" id="">
                <option value="nome">Nome</option>
                <option value="posição">Posição</option>
@@ -143,6 +145,16 @@ function editarCard() {
             <button type="submit" onclick="event.preventDefault()">Atualizar</button>
         </form>
     `;
+
+    escolha.addEventListener("click", () => {
+            escolha.remove();
+            document.body.classList.remove('travado');
+        }
+    );
+    
+    
+    // let campo = document.getElementById('escolhaCampo').addEventListener()
+
   
 }
 
