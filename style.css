@@ -71,7 +71,7 @@ body {
     cursor: pointer;
 }
 
-#btn_fechar {
+.fechar {
     display: flex;
     justify-content: right;
     flex-direction: row-reverse;
