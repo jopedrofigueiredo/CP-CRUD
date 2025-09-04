@@ -63,7 +63,22 @@ let cards = [
 //     document.getElementById('Cardslist').addEventListener('submit', handleClick);
 }
 
+function handleClick(infEvent) {
 
+  console.log(infEvent);
+
+  let action = infEvent.target.dataset.action;
+  let index = infEvent.target.dataset.index;
+
+  if (action === "editar") {
+    console.log("editou" + index);
+    editarCard(index);
+  }
+  else if ( action = "apagar") {
+    console.log("apagou" + index);
+    //apagarCard(index)
+  }
+}
 
 
 // Create
