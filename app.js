@@ -59,7 +59,6 @@ let cards = [
        salvarCards();
       
        document.getElementById('cardForm').addEventListener('submit', addCard);
-       //document.getElementById('editar').addEventListener('click', editarCard);
        document.getElementById('Cardslist').addEventListener('click', handleClick);
 }
 
@@ -76,10 +75,13 @@ function handleClick(infEvent) {
   }
   else if ( action === "apagar") {
     console.log("apagou" + index);
-    //apagarCard(index)
+    apagarCard(index)
   }
 }
 
+
+
+//CRUD
 
 // Create
 function addCard(cardSecurity) {
@@ -129,7 +131,8 @@ function displayCards() {
     <p>Gols = ${item.gols}</p>
     <p>Assistências = ${item.assistencias}</p>
     <p>Jogos = ${item.jogos}</p>
-    <button data-action="editar" data-index="${index}" id="editar">Editar</button>
+    <button data-action="editar" data-index="${index}">Editar</button>
+    <button data-action="apagar" data-index="${index}">Apagar</button>
     `
 
     listaCards.append(CardDiv);
@@ -147,7 +150,7 @@ function editarCard() {
     escolha.innerHTML = `
       <button class="fechar">&times;</button>
       <form id="escolhaCampo">
-            <select name="escolha" id="">
+            <select name="escolha" id="campo-escolhido">
                <option value="nome">Nome</option>
                <option value="posição">Posição</option>
                <option value="clube">Clube</option>
@@ -169,13 +172,21 @@ function editarCard() {
     );
     
     
-    // let campo = document.getElementById('escolhaCampo').addEventListener()
 
-  
+
+
+//Apagar Card
+function apagarCard(index) {
+   let confirmar = confirm("Você deseja mesmo apagar esse perfil?");
+   if (confirmar) {
+    cards.splice(index, 1);
+   }
+   displayCards();
 }
 
 
 
+//LocalStorage
 
 //Salvar Cards
 function salvarCards(){
