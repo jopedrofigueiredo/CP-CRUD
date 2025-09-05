@@ -126,7 +126,7 @@ function displayCards() {
 
     CardDiv.innerHTML = `
     <div class="fotojogadora">
-    <img src"${item.foto}" alt="Imagem da jogadora" width="150px" height="150px">
+    <img src="${item.foto}" alt="Imagem da jogadora" width="150px" height="150px">
     </div>
     <div>
     <div class="infs">
@@ -150,46 +150,61 @@ function displayCards() {
 
 
 //Editar Card
-function editarCard() {
-    let escolha = document.createElement('div');  
-    escolha.classList.add('selecionarCampo');
-    document.body.classList.add('travado');
-    document.body.appendChild(escolha);
+function editarCard(index) {
+  let escolha = document.createElement('div');  
+  escolha.classList.add('selecionarCampo');
+  document.body.classList.add('travado');
+  document.body.appendChild(escolha);
 
-    escolha.innerHTML = `
-      <button class="fechar">&times;</button>
-      <form id="escolhaCampo">
-            <select name="escolha" id="campo-escolhido">
-               <option value="nome">Nome</option>
-               <option value="posição">Posição</option>
-               <option value="clube">Clube</option>
-               <option value="foto">Foto</option>
-               <option value="gols">Gols</option>
-               <option value="assistencias">Assistências</option>
-               <option value="jogos">Jogos</option>
-            </select>
-            <button type="submit" onclick="event.preventDefault()">Atualizar</button>
-        </form>
-    `;
+  escolha.innerHTML = `
+    <button class="fechar">&times;</button>
+    <form id="escolhaCampo">
+      <select name="campo" id="campo-escolhido">
+         <option value="nome">Nome</option>
+         <option value="posicao">Posição</option>
+         <option value="clube">Clube</option>
+         <option value="foto">Foto</option>
+         <option value="gols">Gols</option>
+         <option value="assistencias">Assistências</option>
+         <option value="jogos">Jogos</option>
+      </select>
+      <input type="text" id="novoValor" placeholder="Novo valor" required />
+      <button type="submit">Atualizar</button>
+    </form>
+  `;
 
-    let fechar = escolha.querySelector('.fechar');
+  let fechar = escolha.querySelector('.fechar');
 
-    fechar.addEventListener("click", () => {
-            escolha.remove();
-            document.body.classList.remove('travado');
-        }
-    );
+  fechar.addEventListener("click", () => {
+      escolha.remove();
+      document.body.classList.remove('travado');
+  });
+
+  // Evento para processar o formulário
+  document.getElementById('escolhaCampo').addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let campoEscolhido = document.getElementById('campo-escolhido').value;
+    let novoValor = document.getElementById('novoValor').value;
+
+    if (novoValor === '') {
+      alert('Por favor, insira um valor válido!');
+      return;
+    }
+
+    // Atualizando o campo escolhido no card
+    cards[index][campoEscolhido] = novoValor;
     
-    document.getElementById('escolhaCampo').addEventListener("submit", function(e) {
-      e.preventDefault();
+    // Salvar as alterações no localStorage
+    salvarCards();
 
-      let escolhido = document.getElementById('campo-escolhido');
-      let valor = escolhido.value;
+    // Atualizar a lista de cards na tela
+    displayCards();
 
-      console.log(escolhido);
-      console.log(valor);
-    })
-    
+    // Fechar o formulário de edição
+    escolha.remove();
+    document.body.classList.remove('travado');
+  });
 }
 
 
