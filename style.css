@@ -42,12 +42,17 @@ body {
     width: 60%;
     padding: 15px;
     margin-top: 10px;
+    margin-bottom: 50px;
+
 }
 
 .formularioPerfil button:hover {
     background-color: #0759d0;
     transition: 400ms;
 }
+
+
+/* options */
 
 .selecionarCampo {
     display: flex;
@@ -123,4 +128,64 @@ body {
 
 .travado {
     overflow: hidden;
+}
+
+/* card */
+#Cardslist {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 450px;
+    border: 3px solid black;
+    justify-content: space-between;
+    border-radius: 8px;
+    background-color: lightblue;
+}
+
+.fotojogadora {
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fotojogadora img {
+    border-radius: 8px;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 0 15px 0;
+}
+
+.botoes button {
+    background-color: #fff;
+    border: none;
+    color: black;
+    border-radius: 8px;
+    padding: 5px 15px;
+}
+
+.infs {
+    padding: 0 0 0 30px;
+}
+
+.infs p {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: 300ms;
 }

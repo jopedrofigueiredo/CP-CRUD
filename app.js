@@ -122,17 +122,26 @@ function displayCards() {
 
   cards.forEach((item, index) => {
     let CardDiv = document.createElement('div');
+    CardDiv.classList.add('card')
 
     CardDiv.innerHTML = `
-    <p>Nome = ${item.nome}</p>
-    <p>Posição = ${item.posicao}</p>
-    <p>Clube = ${item.clube}</p>
-    <img src"${item.foto} alt="Imagem da jogadora">
-    <p>Gols = ${item.gols}</p>
-    <p>Assistências = ${item.assistencias}</p>
-    <p>Jogos = ${item.jogos}</p>
+    <div class="fotojogadora">
+    <img src"${item.foto}" alt="Imagem da jogadora" width="150px" height="150px">
+    </div>
+    <div>
+    <div class="infs">
+    <p>Nome: ${item.nome}</p>
+    <p>Posição: ${item.posicao}</p>
+    <p>Clube: ${item.clube}</p>
+    <p>Gols: ${item.gols}</p>
+    <p>Assistências: ${item.assistencias}</p>
+    <p>Jogos: ${item.jogos}</p>
+    </div>
+    <div class="botoes">
     <button data-action="editar" data-index="${index}">Editar</button>
     <button data-action="apagar" data-index="${index}">Apagar</button>
+    </div>
+    </div>
     `
 
     listaCards.append(CardDiv);
