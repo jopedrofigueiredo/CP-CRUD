@@ -59,13 +59,13 @@ let cards = [
        salvarCards();
       
        document.getElementById('cardForm').addEventListener('submit', addCard);
-       document.getElementById('editar').addEventListener('click', editarCard);
-//     document.getElementById('Cardslist').addEventListener('submit', handleClick);
+       //document.getElementById('editar').addEventListener('click', editarCard);
+       document.getElementById('Cardslist').addEventListener('click', handleClick);
 }
 
 function handleClick(infEvent) {
 
-  console.log(infEvent);
+  console.log(infEvent.target);
 
   let action = infEvent.target.dataset.action;
   let index = infEvent.target.dataset.index;
@@ -74,7 +74,7 @@ function handleClick(infEvent) {
     console.log("editou" + index);
     editarCard(index);
   }
-  else if ( action = "apagar") {
+  else if ( action === "apagar") {
     console.log("apagou" + index);
     //apagarCard(index)
   }
@@ -118,7 +118,7 @@ function displayCards() {
   let listaCards = document.querySelector('#Cardslist');
   listaCards.innerHTML = '';
 
-  cards.forEach((item) => {
+  cards.forEach((item, index) => {
     let CardDiv = document.createElement('div');
 
     CardDiv.innerHTML = `
@@ -129,7 +129,7 @@ function displayCards() {
     <p>Gols = ${item.gols}</p>
     <p>Assistências = ${item.assistencias}</p>
     <p>Jogos = ${item.jogos}</p>
-    <button id="editar">Editar</button>
+    <button data-action="editar" data-index="${index}" id="editar">Editar</button>
     `
 
     listaCards.append(CardDiv);
