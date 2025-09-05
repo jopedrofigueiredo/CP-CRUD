@@ -171,7 +171,17 @@ function editarCard() {
         }
     );
     
+    document.getElementById('escolhaCampo').addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let escolhido = document.getElementById('campo-escolhido');
+      let valor = escolhido.value;
+
+      console.log(escolhido);
+      console.log(valor);
+    })
     
+}
 
 
 
