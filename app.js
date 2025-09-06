@@ -180,7 +180,6 @@ function editarCard(index) {
       document.body.classList.remove('travado');
   });
 
-  // Evento para processar o formulário
   document.getElementById('escolhaCampo').addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -192,16 +191,12 @@ function editarCard(index) {
       return;
     }
 
-    // Atualizando o campo escolhido no card
     cards[index][campoEscolhido] = novoValor;
     
-    // Salvar as alterações no localStorage
     salvarCards();
 
-    // Atualizar a lista de cards na tela
     displayCards();
 
-    // Fechar o formulário de edição
     escolha.remove();
     document.body.classList.remove('travado');
   });
