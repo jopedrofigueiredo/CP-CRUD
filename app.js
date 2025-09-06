@@ -60,6 +60,7 @@ let cards = [
       
        document.getElementById('cardForm').addEventListener('submit', addCard);
        document.getElementById('Cardslist').addEventListener('click', handleClick);
+       document.getElementById('favorito').addEventListener('click', Favoritar);
 }
 
 function handleClick(infEvent) {
@@ -125,6 +126,7 @@ function displayCards() {
     CardDiv.classList.add('card')
 
     CardDiv.innerHTML = `
+    <p name="favorito" id="favorito" class="favorito">&#9733</p>
     <div class="fotojogadora">
     <img src="${item.foto}" alt="Imagem da jogadora" width="150px" height="150px">
     </div>
@@ -213,7 +215,18 @@ function apagarCard(index) {
    displayCards();
 }
 
+// Favoritar
+function Favoritar(index) {
+  let btn_favoritar = document.getElementById('favorito');
+  let situacao = btn_favoritar.className;
 
+  if (situacao === "favorito") {
+    btn_favoritar.classList.add('active');
+  } else {
+    btn_favoritar.classList.remove('active');
+  }
+
+}
 
 //LocalStorage
 

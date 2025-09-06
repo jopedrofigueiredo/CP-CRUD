@@ -159,6 +159,7 @@ body {
     justify-content: space-between;
     border-radius: 8px;
     background-color: lightblue;
+    position: relative;
 }
 
 .fotojogadora {
@@ -207,4 +208,20 @@ body {
     transform: scale(1.05);
     transition: 300ms;
 }
+
+.favorito {
+    position: absolute;
+    font-size: 28px;
+    color: #fff;
+    right: 5%;
+    top: 0%;
+    padding:  0 3px;
+    pointer: cursor;
+}
+
+.favorito.active {
+    color: #FFEF00;
+
+}
+
 
