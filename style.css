@@ -216,7 +216,7 @@ body {
     right: 5%;
     top: 0%;
     padding:  0 3px;
-    pointer: cursor;
+    cursor: pointer;
 }
 
 .favorito.active {

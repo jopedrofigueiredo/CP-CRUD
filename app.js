@@ -78,6 +78,9 @@ function handleClick(infEvent) {
     console.log("apagou" + index);
     apagarCard(index)
   }
+  else if (action === "favoritar") {
+  Favoritar(index);
+}
 }
 
 
@@ -126,7 +129,10 @@ function displayCards() {
     CardDiv.classList.add('card')
 
     CardDiv.innerHTML = `
-    <p name="favorito" id="favorito" class="favorito">&#9733</p>
+    <p class="favorito ${item.favorita ? 'active' : ''}" 
+    data-index="${index}" 
+    data-action="favoritar">&#9733;
+    </p>
     <div class="fotojogadora">
     <img src="${item.foto}" alt="Imagem da jogadora" width="150px" height="150px">
     </div>
@@ -217,15 +223,11 @@ function apagarCard(index) {
 
 // Favoritar
 function Favoritar(index) {
-  let btn_favoritar = document.getElementById('favorito');
-  let situacao = btn_favoritar.className;
+  cards[index].favorita = !cards[index].favorita;
 
-  if (situacao === "favorito") {
-    btn_favoritar.classList.add('active');
-  } else {
-    btn_favoritar.classList.remove('active');
-  }
+  salvarCards();
 
+  displayCards();
 }
 
 //LocalStorage
